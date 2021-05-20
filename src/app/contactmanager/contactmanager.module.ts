@@ -12,9 +12,11 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const routes: Routes = [
-  {path: 'contactmanager', loadChildren: () => import('./contactmanager/contactmanager.module').then(m => m.ContactmanagerModule)},
-  {path: 'demo', loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)},
-  {path: '**', redirectTo: 'contactmanager'}//Catch-All route
+  {path: '', component: ContactmanagerAppComponent,
+children:[
+  {path: '', component: MainContentComponent}
+]},
+  {path: '**', redirectTo: ''}//Catch-All route
 ]
 
 @NgModule({
@@ -29,7 +31,7 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule
   ]
 })
 export class ContactmanagerModule { }

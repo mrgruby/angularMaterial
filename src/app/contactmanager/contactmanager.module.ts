@@ -13,9 +13,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const routes: Routes = [
   {path: '', component: ContactmanagerAppComponent,
-children:[
-  {path: '', component: MainContentComponent}
-]},
+children: [{
+  path: '', component: MainContentComponent
+}]},
   {path: '**', redirectTo: ''}//Catch-All route
 ]
 
@@ -31,7 +31,7 @@ children:[
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule
+    RouterModule.forChild(routes)
   ]
 })
 export class ContactmanagerModule { }

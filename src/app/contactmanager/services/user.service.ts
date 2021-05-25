@@ -17,7 +17,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.dataStore = {users: []};
-    this._users = new BehaviorSubject<User[]>([]);
+    this._users = new BehaviorSubject<User[]>([]);//Initialize the _users BehaviorSubject
   }
 
   get users(): Observable<User[]>{

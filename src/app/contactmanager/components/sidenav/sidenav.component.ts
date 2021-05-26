@@ -15,12 +15,14 @@ export class SidenavComponent implements OnInit {
 
   constructor(private breakPointObserver: BreakpointObserver, private userService: UserService) {}
 
+  //This is used to set the "mode" and the "opened" properties of the mat-sidenav element. 
   public isScreenSmall: boolean | undefined;
 
   //Declare Observable for the markup to bind to
   users: Observable<User[]> | undefined;
 
   ngOnInit(): void {
+    //This is specific to opening or closing the sidenav if the screensize changes
     this.breakPointObserver
     .observe([`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`])
     .subscribe((state: BreakpointState) => this.isScreenSmall = state.matches)

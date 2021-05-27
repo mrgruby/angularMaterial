@@ -15,9 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', component: ContactmanagerAppComponent,
-children: [{
-  path: '', component: MainContentComponent
-}]},
+    children: [
+      {path: ':id', component: MainContentComponent},
+      {path: '', component: MainContentComponent}
+    ]},
   {path: '**', redirectTo: ''}//Catch-All route
 ]
 
